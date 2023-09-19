@@ -72,6 +72,7 @@ function playRound(playerSelection = "", computerSelection) {
       console.log(
         computerSelection + " beats " + playerSelection + " ! The Winner is CPU"
       );
+      break;
     case 3:
       console.log("It Was a Draw!");
       break;
@@ -83,30 +84,36 @@ function playRound(playerSelection = "", computerSelection) {
 }
 
 function game() {
-  let roundCount = 1;
-  let userScore = 0;
-  let cpuScore = 0;
+  console.log(`User:${userScore} , CPU:${cpuScore}`);
+  playRound(
+    prompt(`Round ${roundCount} - Please enter your choice`),
+    getComputerChoice()
+  );
 
+  console.log(`User:${userScore} , CPU:${cpuScore}`);
   playRound(
     prompt(`Round ${roundCount} - Please enter your choice`),
     getComputerChoice()
   );
+
+  console.log(`User:${userScore} , CPU:${cpuScore}`);
   playRound(
     prompt(`Round ${roundCount} - Please enter your choice`),
     getComputerChoice()
   );
+
+  console.log(`User:${userScore} , CPU:${cpuScore}`);
   playRound(
     prompt(`Round ${roundCount} - Please enter your choice`),
     getComputerChoice()
   );
+
+  console.log(`User:${userScore} , CPU:${cpuScore}`);
   playRound(
     prompt(`Round ${roundCount} - Please enter your choice`),
     getComputerChoice()
   );
-  playRound(
-    prompt(`Round ${roundCount} - Please enter your choice`),
-    getComputerChoice()
-  );
+  console.log(`User:${userScore} , CPU:${cpuScore}`);
 
   if (userScore > cpuScore) {
     console.log(`The Winner is User with ${userScore} Scores!`);
@@ -118,4 +125,9 @@ function game() {
   }
 }
 
-game();
+let roundCount = 1;
+let userScore = 0;
+let cpuScore = 0;
+if (confirm("Do you want to start a game?")) {
+  game();
+}
