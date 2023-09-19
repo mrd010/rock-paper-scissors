@@ -13,10 +13,12 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection = "", computerSelection) {
-  // winner ---- user : 1 , computer : 2 , draw : 3 , incorrect input (game over) : 0
-  let winner = 0;
+  // winner ---- user : 1 , computer : 2 , draw : 3 , incorrect input (game over) : 0 , No Input (game over) : -1
+  let winner = -1;
   if (!playerSelection) {
-    return "No input";
+    roundCount++;
+    console.log("No input from user");
+    return winner;
   }
 
   playerSelection = playerSelection.toLowerCase();
@@ -54,34 +56,64 @@ function playRound(playerSelection = "", computerSelection) {
 
   switch (winner) {
     case 0:
-      return "Incorrect input";
+      console.log("Incorrect input");
       break;
     case 1:
-      roundCount++;
-      return (
+      userScore++;
+      console.log(
         playerSelection +
-        " beats " +
-        computerSelection +
-        " ! The Winner is User"
+          " beats " +
+          computerSelection +
+          " ! The Winner is User"
       );
       break;
     case 2:
-      roundCount++;
-      return (
+      cpuScore++;
+      console.log(
         computerSelection + " beats " + playerSelection + " ! The Winner is CPU"
       );
     case 3:
-      roundCount++;
-      return "It Was a Draw!";
+      console.log("It Was a Draw!");
       break;
     default:
       break;
   }
+  roundCount++;
+  return winner;
 }
 
-let roundCount = 1;
-let cpuChoice = getComputerChoice();
-console.log("CPU Choose " + cpuChoice);
-console.log(
-  playRound(prompt(`Round ${roundCount} - Please enter your choice`), cpuChoice)
-);
+function game() {
+  let roundCount = 1;
+  let userScore = 0;
+  let cpuScore = 0;
+
+  playRound(
+    prompt(`Round ${roundCount} - Please enter your choice`),
+    getComputerChoice()
+  );
+  playRound(
+    prompt(`Round ${roundCount} - Please enter your choice`),
+    getComputerChoice()
+  );
+  playRound(
+    prompt(`Round ${roundCount} - Please enter your choice`),
+    getComputerChoice()
+  );
+  playRound(
+    prompt(`Round ${roundCount} - Please enter your choice`),
+    getComputerChoice()
+  );
+  playRound(
+    prompt(`Round ${roundCount} - Please enter your choice`),
+    getComputerChoice()
+  );
+
+  if (userScore > cpuScore) {
+    console.log(`The Winner is User with ${userScore} Scores!`);
+  } else if (cpuScore > userScore) {
+    console.log(`The Winner is CPU with ${cpuScore} Scores!!!`);
+    console.log("Sorry! You didn't won");
+  } else {
+    console.log("It Was a Draw! Not bad");
+  }
+}
