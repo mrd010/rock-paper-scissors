@@ -117,3 +117,5 @@ function game() {
     console.log("It Was a Draw! Not bad");
   }
 }
+
+game();
