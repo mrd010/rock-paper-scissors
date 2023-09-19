@@ -12,9 +12,13 @@ function getComputerChoice() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection = "", computerSelection) {
   // winner ---- user : 1 , computer : 2 , draw : 3 , incorrect input (game over) : 0
   let winner = 0;
+  if (!playerSelection) {
+    return "No input";
+  }
+
   playerSelection = playerSelection.toLowerCase();
 
   if (
@@ -77,7 +81,7 @@ function playRound(playerSelection, computerSelection) {
 
 let roundCount = 1;
 let cpuChoice = getComputerChoice();
-console.log(cpuChoice);
+console.log("CPU Choose " + cpuChoice);
 console.log(
   playRound(prompt(`Round ${roundCount} - Please enter your choice`), cpuChoice)
 );
