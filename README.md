@@ -1,6 +1,10 @@
 # rock-paper-scissors
 
-This little Rock Paper Scissors game just work on console.
-The game is between Human and Cpu in just 5 rounds.
+An updated and visualized version of previous Rock-Paper-Scissors
+which was working on console level
 
-Its a dummy project. don't take it seriously.
+This version consists of 3 buttons on HTML page which receives input
+from user and play the game in background until one player reaches
+5 points total.
+
+And again. Its a dummy project. don't take it seriously.
