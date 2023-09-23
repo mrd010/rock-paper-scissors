@@ -4,11 +4,21 @@ const notificationBar = document.querySelector(".notification>p");
 const cpuPlayInfo = document.querySelector("#cpu-info>.info-container");
 const userScoreboard = document.querySelector("#user-score .score");
 const cpuScoreboard = document.querySelector("#cpu-score .score");
+const endGame = document.querySelector(".end");
+const endGameText = endGame.querySelector("p");
+const endGameRestart = endGame.querySelector("#restart");
 
+console.log(endGameText);
 const playButtons = document.querySelectorAll(".btn"); // play buttons Rock Paper ....
 
 startBtn.addEventListener("click", startPlaying); // Start button will start the game
 resetBtn.addEventListener("click", resetPlaying); // Reset button will reset game state
+endGameRestart.addEventListener("click", () => {
+  endGame.style.opacity = "0";
+  endGame.style.zIndex = "-1";
+  resetPlaying();
+  startPlaying();
+});
 
 let firstRun = true;
 
@@ -73,6 +83,10 @@ function playRound() {
   }
 
   updateScoreboard();
+
+  if (userScore == 5 || cpuScore == 5) {
+    showGameOver();
+  }
 }
 
 function checkWinner(player1Hand, player2Hand) {
@@ -96,4 +110,20 @@ function checkWinner(player1Hand, player2Hand) {
 function updateScoreboard() {
   userScoreboard.textContent = userScore.toString();
   cpuScoreboard.textContent = cpuScore.toString();
+}
+
+function showGameOver() {
+  playButtons.forEach((btn) => {
+    btn.setAttribute("disabled", "");
+  });
+  console.log(userScore, cpuScore);
+  if (userScore > cpuScore) {
+    endGameText.textContent =
+      "Congratulations! You won against CPU. Want a rematch???";
+  } else if (userScore < cpuScore) {
+    endGameText.textContent = "You lose! Maybe next time???";
+  }
+
+  endGame.style.opacity = "1";
+  endGame.style.zIndex = "1";
 }
