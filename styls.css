@@ -3,9 +3,10 @@
 :root {
   --BG: white;
   --THEME: tomato;
-  --THEME-Highlight: blue;
+  --THEME-Highlight: rgb(197, 72, 50);
   --DARK: #222;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -15,12 +16,46 @@
 body {
   height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreboard .score-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreboard .score-container#user-score {
+  border: 3px solid var(--THEME);
+  color: var(--THEME-Highlight);
+}
+.scoreboard .score-container#cpu-score {
+  border: 3px solid var(--DARK);
+}
+
+.scoreboard .score-container .score-header {
+  font-size: 1.5rem;
+}
+.scoreboard .score-container .score {
+  font-size: 1.8rem;
+}
+/* Player Phase */
 .button-container {
   width: 500px;
   height: 500px;
-  background-color: tomato;
+  background-color: var(--THEME);
   align-self: center;
   margin: auto;
   border-radius: 50%;
@@ -40,9 +75,11 @@ body {
   border: none;
   font-family: "Lobster", cursive, sans-serif;
   font-size: 2rem;
-  color: rgb(197, 72, 50);
+  color: var(--THEME-Highlight);
 }
 
 .button-container .btn:not(:last-child) {
   margin-top: 50px;
 }
+
+/* Play-info */
