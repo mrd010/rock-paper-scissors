@@ -16,28 +16,29 @@ let userScore = 0;
 let cpuScore = 0;
 
 function resetPlaying() {
-  // reset scores and info
+  // reset scores and info and disable buttons
   const resetElements = document.querySelectorAll(".empty-first");
   resetElements.forEach((element) => (element.textContent = "-"));
-  playButtons.forEach((btn) => btn.classList.remove("active"));
+  startBtn.removeAttribute("disabled");
+  startBtn.classList.remove("disable");
+  playButtons.forEach((btn) => {
+    btn.setAttribute("disabled", "");
+    btn.classList.remove("active");
+  });
+  notificationBar.textContent = "Game Restarted! Press start for a new game.";
   userScore = 0;
   cpuScore = 0;
-  if (!firstRun) {
-    notificationBar.textContent =
-      "Game started! Choose Rock or Paper or Scissors";
-  }
 }
 
 function startPlaying() {
-  // if its first run enable play buttons
-  if (firstRun) {
-    firstRun = false;
-    // enable play button to play
-    playButtons.forEach((btn) => btn.removeAttribute("disabled"));
-  } // if its not first run reset game scores and infos
+  // disable start button
+  startBtn.setAttribute("disabled", "");
+  startBtn.classList.add("disable");
+  // enable play button to play
+  playButtons.forEach((btn) => btn.removeAttribute("disabled"));
 
-  // first reset game state before play
-  resetPlaying();
+  notificationBar.textContent =
+    "Game started! Choose Rock or Paper or Scissors";
 
   // play a round when a play button clicked
   playButtons.forEach((btn) => {
