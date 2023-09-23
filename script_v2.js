@@ -1,6 +1,7 @@
 const startBtn = document.querySelector("#start");
 const resetBtn = document.querySelector("#reset");
 const notificationBar = document.querySelector(".notification>p");
+const cpuPlayInfo = document.querySelector("#cpu-info>.info-container");
 
 const playButtons = document.querySelectorAll(".btn"); // play buttons Rock Paper ....
 
@@ -44,11 +45,15 @@ function startPlaying() {
 
 function playRound() {
   const handStates = ["rock", "paper", "scissors"];
+
   // generate random index between 0 and number of hand states-1
   const randomNumber = Math.floor(Math.random() * (handStates.length - 0.0001));
 
   const cpuChoice = handStates[randomNumber];
   const userChoice = this.id;
+
+  //display cpu choice in info container
+  cpuPlayInfo.textContent = cpuChoice;
 
   // check who is the winner of round
 }
