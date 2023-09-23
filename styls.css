@@ -3,7 +3,7 @@
 :root {
   --BG: white;
   --THEME: tomato;
-  --THEME-Highlight: rgb(197, 72, 50);
+  --THEME-Highlight: rgb(212, 93, 72);
   --DARK: #222;
 }
 
@@ -20,6 +20,7 @@ body {
   justify-content: space-around;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 0 15%;
+  user-select: none;
 }
 
 /* Scoreboard */
@@ -68,7 +69,7 @@ body {
   justify-content: space-evenly;
   align-items: flex-end;
   align-content: center;
-  /* transition: all 0.5s ease; */
+  box-shadow: 0 0 15px -5px var(--DARK);
 }
 
 .button-container .btn {
@@ -79,12 +80,20 @@ body {
   font-family: "Lobster", cursive, sans-serif;
   font-size: 2rem;
   color: var(--THEME-Highlight);
+  cursor: pointer;
+  box-shadow: 0 0 50px -15px var(--DARK);
+  transition: all 0.1s ease;
 }
 
 .button-container .btn:not(:last-child) {
   margin-top: 50px;
 }
 
+.button-container .btn:hover {
+  color: var(--BG);
+  background-color: var(--THEME-Highlight);
+  box-shadow: 0 0 50px -5px var(--DARK);
+}
 /* Play-info */
 
 #cpu-info {
@@ -96,7 +105,7 @@ body {
 #cpu-info .info-header {
   font-size: 2rem;
   text-align: center;
-  padding: 10px;
+  margin-bottom: 20px;
 }
 
 #cpu-info .info-container {
@@ -109,4 +118,5 @@ body {
   min-height: 200px;
   display: grid;
   place-content: center;
+  box-shadow: 0 0 20px -5px var(--DARK);
 }
