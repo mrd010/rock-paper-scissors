@@ -29,4 +29,13 @@ function startPlaying() {
   playButtons.forEach((btn) => btn.addEventListener("click", playRound));
 }
 
-function playRound() {}
+function playRound() {
+  const handStates = ["rock", "paper", "scissors"];
+  // generate random index between 0 and number of hand states-1
+  const randomNumber = Math.floor(Math.random() * (handStates.length - 0.0001));
+
+  const cpuChoice = handStates[randomNumber];
+  const userChoice = this.id;
+
+  // check who is the winner of round
+}
