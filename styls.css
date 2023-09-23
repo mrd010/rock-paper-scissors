@@ -198,6 +198,16 @@ div.menu button.disable {
   background-color: rgba(3, 3, 3, 0.9);
   opacity: 0;
   transition: opacity 0.2s ease;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end p {
+  font-size: 2rem;
+  color: var(--BG);
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  margin: 20px;
 }
