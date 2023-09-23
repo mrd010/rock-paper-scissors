@@ -122,11 +122,20 @@ body {
   margin-top: 50px;
 }
 
-.button-container .btn:hover {
+.button-container .btn:hover,
+.button-container .active {
   color: var(--BG);
-  background-color: var(--THEME-Highlight);
   box-shadow: 0 0 50px -5px var(--DARK);
 }
+
+.button-container .active {
+  background-color: var(--THEME-Highlight);
+}
+
+.button-container .btn:hover {
+  background-color: var(--THEME);
+}
+
 /* Play-info */
 
 #cpu-info {
