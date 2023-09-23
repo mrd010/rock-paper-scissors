@@ -19,11 +19,12 @@ function resetPlaying() {
   // reset scores and info
   const resetElements = document.querySelectorAll(".empty-first");
   resetElements.forEach((element) => (element.textContent = "-"));
+  playButtons.forEach((btn) => btn.classList.remove("active"));
   userScore = 0;
   cpuScore = 0;
-  // if its first running of the game reset btn wont start the game after reset
   if (!firstRun) {
-    startPlaying();
+    notificationBar.textContent =
+      "Game started! Choose Rock or Paper or Scissors";
   }
 }
 
@@ -34,18 +35,19 @@ function startPlaying() {
     // enable play button to play
     playButtons.forEach((btn) => btn.removeAttribute("disabled"));
   } // if its not first run reset game scores and infos
-  else {
-    // first reset game state before play
-    resetPlaying();
-  }
 
-  notificationBar.textContent =
-    "Game started! Choose Rock or Paper or Scissors";
+  // first reset game state before play
+  resetPlaying();
+
   // play a round when a play button clicked
-  playButtons.forEach((btn) => btn.addEventListener("click", playRound));
+  playButtons.forEach((btn) => {
+    btn.addEventListener("click", playRound);
+  });
 }
 
 function playRound() {
+  playButtons.forEach((btn) => btn.classList.remove("active"));
+  this.classList.add("active");
   const handStates = ["rock", "paper", "scissors"];
 
   // generate random index between 0 and number of hand states-1
