@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
+:root {
+  --BG: white;
+  --THEME: tomato;
+  --THEME-Highlight: blue;
+  --DARK: #222;
+}
 * {
   margin: 0;
   padding: 0;
