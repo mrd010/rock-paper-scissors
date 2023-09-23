@@ -2,6 +2,8 @@ const startBtn = document.querySelector("#start");
 const resetBtn = document.querySelector("#reset");
 const notificationBar = document.querySelector(".notification>p");
 const cpuPlayInfo = document.querySelector("#cpu-info>.info-container");
+const userScoreboard = document.querySelector("#user-score .score");
+const cpuScoreboard = document.querySelector("#cpu-score .score");
 
 const playButtons = document.querySelectorAll(".btn"); // play buttons Rock Paper ....
 
@@ -56,4 +58,39 @@ function playRound() {
   cpuPlayInfo.textContent = cpuChoice;
 
   // check who is the winner of round
+  const winner = checkWinner(userChoice, cpuChoice);
+  if (winner === "draw") {
+    notificationBar.textContent = `You and CPU both choose ${userChoice}. This round was a draw and no one gets a score.`;
+  } else if (winner === "player1") {
+    notificationBar.textContent = "You won this round! 1 point for you";
+    userScore++;
+  } else if (winner === "player2") {
+    notificationBar.textContent = "You lost this round! 1 point for cpu";
+    cpuScore++;
+  }
+
+  updateScoreboard();
+}
+
+function checkWinner(player1Hand, player2Hand) {
+  if (player1Hand === player2Hand) {
+    return "draw";
+  } else if (
+    (player1Hand === "rock" && player2Hand === "scissors") ||
+    (player1Hand === "paper" && player2Hand === "rock") ||
+    (player1Hand === "scissors" && player2Hand === "paper")
+  ) {
+    return "player1";
+  } else if (
+    (player1Hand === "rock" && player2Hand === "paper") ||
+    (player1Hand === "paper" && player2Hand === "scissors") ||
+    (player1Hand === "scissors" && player2Hand === "rock")
+  ) {
+    return "player2";
+  }
+}
+
+function updateScoreboard() {
+  userScoreboard.textContent = userScore.toString();
+  cpuScoreboard.textContent = cpuScore.toString();
 }
