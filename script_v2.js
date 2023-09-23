@@ -1,30 +1,43 @@
 const startBtn = document.querySelector("#start");
 const resetBtn = document.querySelector("#reset");
+const notificationBar = document.querySelector(".notification>p");
 
 const playButtons = document.querySelectorAll(".btn"); // play buttons Rock Paper ....
 
 startBtn.addEventListener("click", startPlaying); // Start button will start the game
-
 resetBtn.addEventListener("click", resetPlaying); // Reset button will reset game state
+
+let firstRun = true;
 
 let userScore = 0;
 let cpuScore = 0;
 
 function resetPlaying() {
-  // disable play buttons
-  playButtons.forEach((btn) => btn.setAttribute("disabled", ""));
   // reset scores and info
   const resetElements = document.querySelectorAll(".empty-first");
   resetElements.forEach((element) => (element.textContent = "-"));
+  userScore = 0;
+  cpuScore = 0;
+  // if its first running of the game reset btn wont start the game after reset
+  if (!firstRun) {
+    startPlaying();
+  }
 }
 
 function startPlaying() {
-  // first reset game state before play
-  resetPlaying();
+  // if its first run enable play buttons
+  if (firstRun) {
+    firstRun = false;
+    // enable play button to play
+    playButtons.forEach((btn) => btn.removeAttribute("disabled"));
+  } // if its not first run reset game scores and infos
+  else {
+    // first reset game state before play
+    resetPlaying();
+  }
 
-  // enable play button to play
-  playButtons.forEach((btn) => btn.removeAttribute("disabled"));
-
+  notificationBar.textContent =
+    "Game started! Choose Rock or Paper or Scissors";
   // play a round when a play button clicked
   playButtons.forEach((btn) => btn.addEventListener("click", playRound));
 }
