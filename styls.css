@@ -14,12 +14,12 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  /* padding: 0 5%; */
+  padding: 0 15%;
 }
 
 /* Scoreboard */
@@ -29,13 +29,14 @@ body {
 }
 
 .scoreboard .score-container {
-  width: 150px;
-  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .scoreboard .score-container#user-score {
@@ -55,6 +56,7 @@ body {
 /* Player Phase */
 .button-container {
   width: 500px;
+  min-width: 500px;
   height: 500px;
   background-color: var(--THEME);
   align-self: center;
@@ -94,6 +96,7 @@ body {
 #cpu-info .info-header {
   font-size: 2rem;
   text-align: center;
+  padding: 10px;
 }
 
 #cpu-info .info-container {
@@ -102,8 +105,8 @@ body {
   border-radius: 50%;
   background-color: var(--DARK);
   color: var(--BG);
-  width: 200px;
-  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
   display: grid;
   place-content: center;
 }
