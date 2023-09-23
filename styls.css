@@ -30,14 +30,14 @@ body {
 }
 
 .scoreboard .score-container {
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 130px;
+  min-height: 130px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  justify-content: space-evenly;
 }
 
 .scoreboard .score-container#user-score {
@@ -54,6 +54,7 @@ body {
 .scoreboard .score-container .score {
   font-size: 1.8rem;
 }
+
 /* Player Phase */
 .button-container {
   width: 500px;
