@@ -23,10 +23,42 @@ body {
   user-select: none;
 }
 
+/* Top menu */
+
+.menu {
+  position: fixed;
+  top: 0;
+  background-color: var(--DARK);
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.menu .menu-button {
+  background-color: var(--BG);
+  color: var(--DARK);
+  padding: 15px 0;
+  width: 200px;
+  margin: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+  transition: background-color 0.1s ease;
+}
+
+.menu .menu-button:hover {
+  background-color: peachpuff;
+}
+
 /* Scoreboard */
 .scoreboard {
   display: flex;
   flex-direction: column;
+  margin-right: 8%;
 }
 
 .scoreboard .score-container {
