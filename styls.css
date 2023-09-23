@@ -19,6 +19,7 @@ body {
   align-items: center;
   justify-content: space-around;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  /* padding: 0 5%; */
 }
 
 /* Scoreboard */
@@ -83,3 +84,26 @@ body {
 }
 
 /* Play-info */
+
+#cpu-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cpu-info .info-header {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#cpu-info .info-container {
+  font-size: 3rem;
+  font-family: "Lobster", cursive, sans-serif;
+  border-radius: 50%;
+  background-color: var(--DARK);
+  color: var(--BG);
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-content: center;
+}
